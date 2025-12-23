@@ -1,0 +1,14 @@
+*{  
+    margin:0;
+    background-color:aliceblue;
+}
+body{
+    overflow: hidden;
+    
+}
+#canvas{
+    background-image: url('./pics/BgPic.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 90%;
+}
