@@ -7,6 +7,7 @@ body{
     
 }
 #canvas{
+    border: 1px solid black;
     background-image: url('./pics/BgPic.jpg');
     background-repeat: no-repeat;
     background-size: cover;

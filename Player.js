@@ -2,7 +2,7 @@ import Bullet from "./Bullet.js"
 
 class Player{
     constructor(canvas){
-        this.hp=15
+        this.hp=3
         this.direction={
             x:1,
             y:1
@@ -119,11 +119,9 @@ class Player{
             this.speed.y=0
             if(this.hp==0){
             ctx.beginPath()
-            ctx.fillStyle='blue'
-            ctx.fillRect(canvas.width/2-150,canvas.height/2-200,300,200)
-            ctx.fillStyle='red'
-            ctx.font = "48px serif"
-            ctx.fillText("You Loose",canvas.width/2-100,canvas.height/2-100)
+            ctx.fillStyle="red"
+            ctx.font = "80px serif"
+            ctx.fillText("You Loose",canvas.width/2-150,canvas.height/2)
         }
         }
     }

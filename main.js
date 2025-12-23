@@ -25,10 +25,24 @@ canvas.addEventListener('click',function(){
     bullet.audio.play()
 })
 
+let score=0
+let hp =player.hp
+
 
 function gameLoop(){
     ctx.clearRect(0,0,canvas.width,canvas.height)
     requestAnimationFrame(gameLoop)
+
+    ctx.beginPath()
+    ctx.fillStyle="white"
+    ctx.font = "25px serif"
+    ctx.fillText("Score: ",0,30)
+    ctx.fillText(score,75,32)
+    ctx.font = "25px serif"
+    ctx.fillText("Lives: ",0,60)
+    ctx.fillText(hp,75,62)
+    
+    
 
     player.draw(ctx)
     player.update(ctx,canvas)
@@ -47,18 +61,18 @@ function gameLoop(){
                 enemys[i].audio.play()
                 enemys.splice(i,1)
                 bullets.splice(j,1)
-                
+                score+= 1
             }
         }
    }
 
    for(let i=0;i<enemys.length;i++){
     if (enemys[i].bottom>=canvas.height){
-        player.hp-=5
+        player.hp-=1
         enemys.splice(i,1)
     }
     if(player.top<enemys[i].bottom && player.bottom>enemys[i].top && player.left<enemys[i].right && player.right>enemys[i].left){
-        player.hp-=5 
+        player.hp-=1 
         enemys[i].audio.play()
         enemys.splice(i,1)
         
@@ -71,6 +85,10 @@ function gameLoop(){
     for(let i=0;i<bullets.length;i++){
         bullets[i].update()
         bullets[i].draw(ctx)
+
+        if(bullets[i].bottom<0){
+            bullets.splice(i,1)
+        }
     }   
 }
 gameLoop()
