@@ -92,24 +92,41 @@ class Player{
       
     }
     update(ctx){
-        
         if(this.key.w){
-            this.position.y-=this.speed.y
+            if(this.position.y<=0){
+                console.log(canvas.height)
+                this.position.y+=0
+            }else {
+                
+                this.position.y-=this.speed.y
+            }
         }
-
-
+        
+       
         if(this.key.a){
-            this.position.x-=this.speed.x
+            if(this.position.x<=0){
+                this.position.x-=0
+            }else{
+                this.position.x-=this.speed.x
+            }
         }
 
 
         if(this.key.s){
-            this.position.y+=this.speed.y
+           if(this.position.y+this.size.height>=ctx.canvas.height){
+             this.position.y+=0
+            }else{
+                this.position.y+=this.speed.y
+            }           
         }
 
 
         if(this.key.d){
-            this.position.x+=this.speed.x
+           if(this.position.x+this.size.width>=ctx.canvas.width){
+                this.position.x+=0
+           }else{
+                this.position.x+=this.speed.x
+           }
         }
 
 
